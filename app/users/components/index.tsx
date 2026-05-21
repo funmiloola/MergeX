@@ -22,21 +22,20 @@ export default function TableClient() {
   const [globalFilter, setGlobalFilter] = useState<string>(search);
   const columns = useColumns();
   const { tableData, secondOpen, setSecondOpen, selectedUser } = useUser();
-
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (globalFilter) {
-      params.set("search", globalFilter);
-    } else {
+    const handleFilter = (value: string) => {
+        setGlobalFilter(value)
+        const params = new URLSearchParams(searchParams.toString());
+        if (value) {
+            params.set("search",value)
+        }else {
       params.delete("search");
-    }
-
-    router.replace(`${pathname}?${params.toString()}`);
-  }, [globalFilter, pathname, router]);
+        }
+        router.replace(`${pathname}?${params.toString()}`)
+  }
 
   return (
     <div className="border border-black/20 rounded-2xl mx-auto py-10 font-inter ">
-      <Header value={globalFilter} onChange={setGlobalFilter} />
+      <Header value={globalFilter} onChange={handleFilter} />
       <div>
         <DataTable
           columns={columns}
