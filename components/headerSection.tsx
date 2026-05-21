@@ -17,11 +17,11 @@ export type Props = {
 };
 
 export default function Header({ value, onChange }: Props) {
-  const { selectedUsers, open, setOpen,tableData } = useUser();
+  const { selectedUsers, open, setOpen } = useUser();
 
   return (
-    <section className="px-4">
-          <h1 className="text-3xl font-semibold flex gap-2 items-center">Users <span className="px-2 py-0.5 font-semibold bg-blue-50 rounded-full text-blue-500 text-xs ">{ tableData.length}</span></h1>
+    <section className="px-4  ">
+          <h1 className="text-3xl font-semibold flex gap-2 items-center">Users </h1>
       <div className="flex items-center justify-between py-4">
         <Input
           placeholder="Search users..."

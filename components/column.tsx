@@ -9,7 +9,10 @@ export type Users = {
     gender: string,
     phone: number ,
     country: string,
-    dateRegistered:string
+  dateRegistered: string,
+  avatar: string,
+  city?: string,
+    state?:string
 }
 export function useColumns(): ColumnDef<Users>[] {
   const {
@@ -87,6 +90,15 @@ const isChecked = selectedUsers.some((u) => u.id === user.id);
     {
       accessorKey: "name",
       header: "Name",
+      cell: ({ row }) => {
+        const user = row.original
+        return (
+          <div className="flex gap-2 items-center">
+            <img src={user.avatar} alt="" className="rounded-full"/>
+            <span>{ user.name}</span>
+          </div>
+        )
+      }
     },
     {
     accessorKey: "email",

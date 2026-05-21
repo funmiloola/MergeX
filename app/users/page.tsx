@@ -1,14 +1,12 @@
-'use client'
-import { useUser } from "@/components/context"
-import TableClient from "@/components/tableClient"
+import TableClient from "./components";
 
 
 export default function TablePage() {
-  const {tableData} = useUser()
- 
+  
+
   return (
     <div className="container mx-auto py-10 font-inter">
-      <TableClient data={tableData} />
+      <TableClient/>
     </div>
-  )
+  );
 }

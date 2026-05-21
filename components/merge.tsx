@@ -26,14 +26,13 @@ export default function MergeDisplay({
   return (
     <>
       <div className="bg-white border border-blue-100 rounded-md flex flex-col gap-2 text-base h-full p-6 w-full">
-        <div className="flex gap-3 items-start">
+        <div className="flex gap-3 items-center">
           <div>
-            <img src="/icons8-user-50.png" alt="" />
+            <img src={mergeValues.avatar} alt="avatar" className="w-40 h-40 rounded-full"/>
           </div>
-                  <p className="flex flex-col gap-1">
-                       <span className="text-gray-500">Name</span>
+          <p className="flex flex-col gap-1">
+            <span className="text-gray-500">Name</span>
             <span className="text-sm">{mergeValues.name}</span>
-           
           </p>
         </div>
         <div className="flex flex-col gap-4 text-base pt-6">
@@ -44,9 +43,7 @@ export default function MergeDisplay({
 
             <p className="flex flex-col gap-0.5">
               <span>Email</span>
-              <span className="text-blue-400 text-sm">
-                {mergeValues.email}
-              </span>
+              <span className="text-blue-400 text-sm">{mergeValues.email}</span>
             </p>
           </div>
           <div className="flex items-center gap-3">
